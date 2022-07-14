@@ -2,41 +2,23 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Effect": "Allow",
-            "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:*"
-        },
-        {
+            "Sid": "basic",
             "Effect": "Allow",
             "Action": [
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
+                "logs:PutLogEvents",
+                "logs:CreateLogGroup"
             ],
-            "Resource": [
-                
-"arn:aws:logs:*"
-            ]
+            "Resource": "*"
         },
         {
-            "Action": "ssm:StartAutomationExecution",
-            "Effect": "Allow",
-            "Resource": [
-                
-"arn:aws:ssm:*:*:automation-definition/AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock:$DEFAULT"
-            ]
-        },
-        {
+            "Sid": "functional",
             "Effect": "Allow",
             "Action": [
-                "iam:PassRole"
+                "SNS:Publish",
+                "securityhub:BatchImportFindings"
             ],
-            "Resource": 
-"arn:aws:iam::*:role/AutomationServiceRole",
-            "Condition": {
-                "StringLikeIfExists": {
-                    "iam:PassedToService": "ssm.amazonaws.com"
-                }
-            }
+            "Resource": "*"
         }
     ]
 }
