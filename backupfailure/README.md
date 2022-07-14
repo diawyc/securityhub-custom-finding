@@ -7,7 +7,7 @@ regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output tex
 function='backup-siem-alert'
 lambdapolicy='lambda-backup-siem-policy'
 rolename='lambda-backup-siem'
-rulename='rdsreplicate-lambda'
+rulename='backup-lambda-sechub'
 ```
 可检查一下regions里的地区是否是想要部署的 double check the region list
 ```
