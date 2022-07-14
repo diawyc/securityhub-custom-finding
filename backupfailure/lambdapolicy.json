@@ -15,7 +15,6 @@
             "Sid": "functional",
             "Effect": "Allow",
             "Action": [
-                "SNS:Publish",
                 "securityhub:BatchImportFindings"
             ],
             "Resource": "*"
