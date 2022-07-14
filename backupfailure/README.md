@@ -9,6 +9,10 @@ lambdapolicy='lambda-backup-siem-policy'
 rolename='lambda-backup-siem'
 rulename='rdsreplicate-lambda'
 ```
+可检查一下regions里的地区是否是想要部署的 double check the region list
+```
+echo $regions
+```
 ### Create IAM role 
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://trust-lambda.json --query 'Role.Arn' --output text)
