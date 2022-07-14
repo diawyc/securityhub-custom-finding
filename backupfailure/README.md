@@ -17,6 +17,7 @@ echo $regions
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://trust-lambda.json --query 'Role.Arn' --output text)
 aws iam put-role-policy --role-name=$rolename --policy-name $lambdapolicy --policy-document file://lambdapolicy.json
+echo $rolearn
 ```
 
 ## Create Lambda & Eventbridge in each region
