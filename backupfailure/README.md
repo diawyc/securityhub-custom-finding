@@ -28,7 +28,7 @@ lambdaarn=$(aws lambda create-function \
 echo $lambdaarn
 rulearn=$(aws events put-rule \
 --name $rulename \
---event-pattern "{ \"detail\": {\"eventName\": [\"CreateDBInstanceReadReplica\"]}}"  --region=$region)
+--event-pattern "{\"source\": [\"aws.backup\"],\"detail-type\": [\"Backup Job State Change\"]}"  --region=$region)
 echo $rulearn
 aws lambda add-permission \
 --function-name $function \
