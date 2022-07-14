@@ -2,7 +2,7 @@
 ### Securityhub Enabled
 See https://github.com/jessicawyc/aws-enable-ess
 
-请下载所有文件到本地 Download all the related files from the folder,lease
+请下载所有文件到本地CLI运行目录 Download all the related files from the folder into your local CLI folder,please
 ### Set Parameter 参数设置
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
