@@ -11,7 +11,7 @@ rulename='backup-lambda-sechub'
 ```
 (optional)可检查一下regions里的地区是否是想要部署的 double check the region list
 ```
-echo $regions
+echo $regions $function $lambdapolicy $rolename $rulename
 ```
 ### Create IAM role 
 ```
