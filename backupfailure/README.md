@@ -1,4 +1,6 @@
 # Deployment Process 部署说明
+### Securityhub Enabled
+See https://github.com/jessicawyc/aws-enable-ess
 
 请下载所有文件到本地 Download all the related files from the folder,lease
 ### Set Parameter 参数设置
@@ -51,4 +53,4 @@ aws lambda add-permission \
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 done
 ```
-中国区?--principal events.amazonaws.com \
+
