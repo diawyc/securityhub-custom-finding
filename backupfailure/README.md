@@ -9,7 +9,7 @@ lambdapolicy='lambda-backup-siem-policy'
 rolename='lambda-backup-siem'
 rulename='backup-lambda-sechub'
 ```
-可检查一下regions里的地区是否是想要部署的 double check the region list
+(optional)可检查一下regions里的地区是否是想要部署的 double check the region list
 ```
 echo $regions
 ```
@@ -17,8 +17,13 @@ echo $regions
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://trust-lambda.json --query 'Role.Arn' --output text)
 aws iam put-role-policy --role-name=$rolename --policy-name $lambdapolicy --policy-document file://lambdapolicy.json
-echo $rolearn
 ```
+(optional)Double check the role status 检查role是否正常创建
+```
+echo $rolearn
+rolearn=$(aws iam get-role   --role-name $rolename --query 'Role.Arn' --output text)
+```
+
 
 ## Create Lambda & Eventbridge in each region
 ```
