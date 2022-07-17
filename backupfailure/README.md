@@ -23,6 +23,9 @@ aws iam put-role-policy --role-name=$rolename --policy-name $lambdapolicy --poli
 (optional)Double check the role status 检查role是否正常创建
 ```
 echo $rolearn
+```
+(optional)if the rolearn is not right,you may use below command to try again.
+```
 rolearn=$(aws iam get-role   --role-name $rolename --query 'Role.Arn' --output text)
 ```
 
