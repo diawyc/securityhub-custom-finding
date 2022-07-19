@@ -1,4 +1,4 @@
-# Single Account Multiple Regions Deployment Process 部署说明
+# Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
 ### Securityhub Enabled
 See https://github.com/jessicawyc/aws-enable-ess
 
