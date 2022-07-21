@@ -1,5 +1,6 @@
 # Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
-### Securityhub Enabled
+### Prerequisites 前提条件
+Securityhub Enabled and Aggregated Region is set 开启Securityhub并且设定好聚合region
 See https://github.com/jessicawyc/aws-enable-ess
 
 请下载所有文件到本地CLI运行目录 Download all the related files from the folder into your local CLI folder,please
