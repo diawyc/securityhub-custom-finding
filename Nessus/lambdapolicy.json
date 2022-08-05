@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "basic",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:CreateLogGroup"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "functional",
+            "Effect": "Allow",
+            "Action": [
+                "securityhub:BatchImportFindings"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
