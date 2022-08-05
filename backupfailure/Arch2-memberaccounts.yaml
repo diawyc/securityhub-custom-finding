@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 
 Parameters: 
     EBARN: 
-      Description: "Please enter the arn of event-bus"
+      Description: "Please enter the arn of event-bus in your securithub admin account"
       Type: String
 Resources:
   EventRule:
