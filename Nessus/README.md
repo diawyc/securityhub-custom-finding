@@ -2,11 +2,12 @@
 
 ![test image](/architecture.png =500x600)
 
-Result Finding Compare with Inspector in Securityhub
+
 
 ![compare](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/InspectorvsNessusFinding.png =500x600)
+Result Finding Compare with Inspector in Securityhub
 
-![This is an image](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/InspectorvsNessusFinding.png)
+![image](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/InspectorvsNessusFinding.png)
 
 ## Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
 ### Prerequisites 前提条件
