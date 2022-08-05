@@ -47,13 +47,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'events:PutEvents'
-                Resource: !Join 
-                  - ''
-                  - - 'arn:aws:events:'
-                    - !Ref 'AWS::Region'
-                    - ':'
-                    - !Ref EBARN
-                    - ':event-bus/default'
+                Resource: !Ref EBARN
 
 
 
