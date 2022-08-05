@@ -4,7 +4,7 @@
 
 Result Finding Compare with Inspector in Securityhub
 
-![compare](/InspectorvsNessusFinding.png =500x600)
+![InspectorvsNessusFinding.png](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/InspectorvsNessusFinding.png =500x600)
 
 
 
