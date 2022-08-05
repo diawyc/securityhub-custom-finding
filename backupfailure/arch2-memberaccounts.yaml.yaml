@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters: 
+    EBARN: 
+      Description: "Please enter the arn of event-bus"
+      Type: String
+Resources:
+  EventRule:
+    Type: 'AWS::Events::Rule'
+    Properties:
+      Description: EventRule to get cloudtrail for backup log
+      EventPattern:
+        source:
+          - aws.backup
+        detail-type:
+          - Backup Job State Change
+      State: ENABLED
+      Targets:
+        - Arn: !Ref EBARN
+             
+          Id: Eventstosechubadmin
+          RoleArn:
+            'Fn::GetAtt':
+              - EventBridgeRole
+              - Arn
+  EventBridgeRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      Description: >-
+        IAM role that allows events to be published to the Security Hub Admin
+        account default event bus
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - events.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      Policies:
+        - PolicyName: SecurityHubBackupAlert-EventBridgePolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'events:PutEvents'
+                Resource: !Join 
+                  - ''
+                  - - 'arn:aws:events:'
+                    - !Ref 'AWS::Region'
+                    - ':'
+                    - !Ref EBARN
+                    - ':event-bus/default'
+
+
+
