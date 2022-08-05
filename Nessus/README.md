@@ -1,7 +1,8 @@
 # Architecture
-![arch](/architecture.png)
+
+ ![test image](/architecture.png =500x600)
 Result Finding Compare with Inspector in Securityhub
-![compare](/InspectorvsNessusFinding.png)
+![compare](/InspectorvsNessusFinding.png =500x600)
 
 
 
