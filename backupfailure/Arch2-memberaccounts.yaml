@@ -17,12 +17,8 @@ Resources:
       State: ENABLED
       Targets:
         - Arn: !Ref EBARN
-             
           Id: Eventstosechubadmin
-          RoleArn:
-            'Fn::GetAtt':
-              - EventBridgeRole
-              - Arn
+          RoleArn:!GetAtt EventBridgeRole.Arn
   EventBridgeRole:
     Type: 'AWS::IAM::Role'
     Properties:
@@ -37,7 +33,7 @@ Resources:
               Service:
                 - events.amazonaws.com
             Action:
-              - 'sts:AssumeRole'
+              - sts:AssumeRole
       Path: /
       Policies:
         - PolicyName: SecurityHubBackupAlert-EventBridgePolicy
@@ -46,8 +42,9 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'events:PutEvents'
-                Resource: !Ref EBARN
+                - events:PutEvents
+                Resource: 
+                - !Ref EBARN
 
 
 
