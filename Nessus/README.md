@@ -1,11 +1,12 @@
 # Architecture
 
+![arch](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/architecture.png)
 
 Result Finding Compare with Inspector in Securityhub
 
 ![image](https://github.com/jessicawyc/securityhub-custom-finding/blob/main/Nessus/InspectorvsNessusFinding.png)
 
-
+![image](/InspectorvsNessusFinding.png)
 
 ## Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
 ### Prerequisites 前提条件
