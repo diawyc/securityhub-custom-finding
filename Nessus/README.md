@@ -1,3 +1,10 @@
+#Architecture
+![This is an image](/architecture.png)
+Result Finding Compare with Inspector in Securityhub
+![This is an image](/architecture.png)
+
+
+
 # Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
 ### Prerequisites 前提条件
 Securityhub Enabled and Aggregated Region is set 开启Securityhub并且设定好聚合region
