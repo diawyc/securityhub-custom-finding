@@ -63,4 +63,4 @@ aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --r
 ```
 ## China Region 中国区
 For step1 you need to only choose one region each time, totally rune twice the cloudformation template.
-For step2 you can only run once, the same command as SingleAccount Multiple region one, see [SingleAccount- deployment.md](SingleAccount- deployment.md)
+For step2 you can only run once, the same command as SingleAccount Multiple region one, see  [SingleAccount- deployment.md] (SingleAccount- deployment.md)
