@@ -18,5 +18,5 @@ Each region in each memeber account alert will be sent to a central Eventbridge 
 ![type1](Arch2.png)
 Deployment process detail please see [Arch2-deployment.md](Arch2-deployment.md)
 
-### Note China Region Special 中国区由于不支持cross region event因此，需要在两个region分别部署lambda
+### *Note China Region Special 中国区由于不支持cross region event因此，需要在两个region分别部署lambda
 ![type1](Arch2-China.png)
