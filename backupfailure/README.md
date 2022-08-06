@@ -1,61 +1,20 @@
-# Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
-![type1](Arch-SingleAccount.png)
-### Prerequisites 前提条件
-Securityhub Enabled and Aggregated Region is set 开启Securityhub并且设定好聚合region
+#Overall Architecture
+## Prerequisites 前提条件
+Securityhub Enabled and Aggregated Region is set with delegated admin account within Orgnization 开启Securityhub并且设定好聚合region,组织内指定管理员账号
 See https://github.com/jessicawyc/aws-enable-ess
 
-请下载所有文件到本地CLI运行目录 Download all the related files from the folder into your local CLI folder,please
-### Set Parameter 参数设置
-```
-regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
-function='backup-siem-alert'
-lambdapolicy='lambda-backup-siem-policy'
-rolename='lambda-backup-siem'
-rulename='backup-lambda-sechub'
-```
-(optional)可检查一下regions里的地区是否是想要部署的 double check the region list
-```
-echo $regions $function $lambdapolicy $rolename $rulename
-```
-### Create IAM role 
-```
-rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://trust-lambda.json --query 'Role.Arn' --output text)
-aws iam put-role-policy --role-name=$rolename --policy-name $lambdapolicy --policy-document file://lambdapolicy.json
-```
-(optional)Double check the role status 检查role是否正常创建
-```
-echo $rolearn
-```
-(optional)if the rolearn is not right,you may use below command to try again.
-```
-rolearn=$(aws iam get-role   --role-name $rolename --query 'Role.Arn' --output text)
-```
+There all 3 types of deployment architectures:
+## Single Account Multiple Regions Architecture 一个AWS账号内多区域架构
+![type1](Arch-SingleAccount.png)
+Deployment process see [SingleAccount](SingleAccount- deployment.md)
+## Multiple Accounts with Multiple Regions in one Organization  Architecture 1 组织内多账号多区域架构1
+Repeat the SingleAccount deployment in every member account, as securityhub with organization has the aggregation feauture in nature, all the findings can be aggregated in the aggregated region in delegated admin account securityhub.
+![type1](Arch-SingleAccount.png)
+Deployment process is the easiest one, just run a cloudformation stacksets template in your management account
+for Detail stpes please see [Arch1-deployment.md](Arch1-deployment.md)
+## Multiple Accounts with Multiple Regions in one Organization  Architecture 2 组织内多账号多区域架构2
+Each region in each memeber account alert will be sent to a central Eventbridge eventbus in the securityhub delegated admin account, then there will be only one lambda centrally process all the events,and generate a critical finding in securityhub.
+![type1](Arch-SingleAccount.png)
+Deployment process detail please see [Arch2-deployment.md](Arch2-deployment.md)
 
-
-## Create Lambda & Eventbridge in each region
-```
-for region in $regions; do
-echo $region
-lambdaarn=$(aws lambda create-function \
-    --function-name $function \
-    --runtime python3.9 \
-    --zip-file fileb://index.zip \
-    --handler index.lambda_handler \
-    --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
-echo $lambdaarn
-rulearn=$(aws events put-rule \
---name $rulename \
---event-pattern "{\"source\": [\"aws.backup\"],\"detail-type\": [\"Backup Job State Change\"]}" \
---query 'RuleArn' --output text \
---region=$region)
-echo $rulearn
-aws lambda add-permission \
---function-name $function \
---statement-id eb-rule \
---action 'lambda:InvokeFunction' \
---principal events.amazonaws.com \
---source-arn $rulearn --region=$region
-aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
-done
-```
 
