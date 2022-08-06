@@ -1,6 +1,6 @@
 #  Deployment Process 部署说明
 
-## Member accounts deployment
+## Step 1Member accounts deployment
 Use cloudformation template [Arch2-memberaccounts.yaml](Arch2-memberaccounts.yaml) in your organization's management account to create a stacksets.
 Choose the members accounts and regions.
 The parameter is the arn of the target Eventbridge event bus, to get it you may run below CLI in the securityhub's delegated admin account.
@@ -12,7 +12,7 @@ region=eu-west-2
 ```
 aws events list-event-buses --region=$region --output text --query "EventBuses[*].Arn"
 ```
-## Target Account
+## Step 2 Target Account
 Recommand to use securityhub's delegated admin account as the targe account in which to deploy the lambda
 
 ### Set Parameter 参数设置
@@ -61,3 +61,6 @@ aws lambda add-permission \
 --source-arn $rulearn --region=$region
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
+## China Region 中国区
+For step1 you need to only choose one region each time, totally rune twice the cloudformation template.
+For step2 you can only run once, the same command as SingleAccount Multiple region one, see [SingleAccount- deployment.md](SingleAccount- deployment.md)
