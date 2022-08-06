@@ -9,7 +9,7 @@ There all 3 types of deployment architectures:
 Deployment process see [SingleAccount](SingleAccount- deployment.md)
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 1 组织内多账号多区域架构1
 Repeat the SingleAccount deployment in every member account, as securityhub with organization has the aggregation feauture in nature, all the findings can be aggregated in the aggregated region in delegated admin account securityhub.
-![type1](Arch-SingleAccount.png)
+![type1](Arch1.png)
 Deployment process is the easiest one, just run a cloudformation stacksets template in your management account
 for Detail stpes please see [Arch1-deployment.md](Arch1-deployment.md)
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 2 组织内多账号多区域架构2
@@ -18,3 +18,4 @@ Each region in each memeber account alert will be sent to a central Eventbridge 
 Deployment process detail please see [Arch2-deployment.md](Arch2-deployment.md)
 
 
+![type1](Arch2-China.png)
