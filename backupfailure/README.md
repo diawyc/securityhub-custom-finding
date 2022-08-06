@@ -7,7 +7,7 @@ There all 3 types of deployment architectures:
 ## Single Account Multiple Regions Architecture 一个AWS账号内多区域架构
 ![type1](Arch-SingleAccount.png)
 
-Deployment process please see [Arch2-deployment.md](Arch2-deployment.md)
+Deployment process please see [SingleAccount-deployment.md](SingleAccount-deployment.md)
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 1 组织内多账号多区域架构1
 Repeat the SingleAccount deployment in every member account, as securityhub with organization has the aggregation feauture in nature, all the findings can be aggregated in the aggregated region in delegated admin account securityhub.
 ![type1](Arch1.png)
