@@ -1,4 +1,5 @@
 # Single Account Multiple Regions Deployment Process 一个AWS账号内多区域部署说明
+![type1](Arch-SingleAccount.png)
 ### Prerequisites 前提条件
 Securityhub Enabled and Aggregated Region is set 开启Securityhub并且设定好聚合region
 See https://github.com/jessicawyc/aws-enable-ess
