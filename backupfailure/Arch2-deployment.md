@@ -4,6 +4,7 @@
 Use cloudformation template [Arch2-memberaccounts.yaml](Arch2-memberaccounts.yaml) in your organization's management account to create a stacksets.
 Choose the members accounts and regions.
 The parameter is the arn of the target Eventbridge event bus, to get it you may run below CLI in the securityhub's delegated admin account.
+Copy the output of the CLI command into your cloudformation stacksets paramer EBARN
 
 ```
 region=eu-west-2
