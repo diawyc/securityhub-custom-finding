@@ -6,12 +6,13 @@ See https://github.com/jessicawyc/aws-enable-ess
 There all 3 types of deployment architectures:
 ## Single Account Multiple Regions Architecture 一个AWS账号内多区域架构
 ![type1](Arch-SingleAccount.png)
-Deployment process see [SingleAccount- deployment.md](SingleAccount- deployment.md)
+Deployment process please see [SingleAccount- deployment.md](SingleAccount- deployment.md)
+
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 1 组织内多账号多区域架构1
 Repeat the SingleAccount deployment in every member account, as securityhub with organization has the aggregation feauture in nature, all the findings can be aggregated in the aggregated region in delegated admin account securityhub.
 ![type1](Arch1.png)
 Deployment process is the easiest one, just run a cloudformation stacksets template in your management account
-for Detail stpes please see [Arch1-deployment.md](Arch1-deployment.md)
+for Detail steps please see [Arch1-deployment.md](Arch1-deployment.md)
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 2 组织内多账号多区域架构2
 Each region in each memeber account alert will be sent to a central Eventbridge eventbus in the securityhub delegated admin account, then there will be only one lambda centrally process all the events,and generate a critical finding in securityhub.
 ![type1](Arch2.png)
