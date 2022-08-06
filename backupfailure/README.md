@@ -1,4 +1,4 @@
-#Overall Architecture
+# Overall Architecture
 ## Prerequisites 前提条件
 Securityhub Enabled and Aggregated Region is set with delegated admin account within Orgnization 开启Securityhub并且设定好聚合region,组织内指定管理员账号
 See https://github.com/jessicawyc/aws-enable-ess
