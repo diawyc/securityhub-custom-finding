@@ -14,8 +14,8 @@ Deployment process is the easiest one, just run a cloudformation stacksets templ
 for Detail stpes please see [Arch1-deployment.md](Arch1-deployment.md)
 ## Multiple Accounts with Multiple Regions in one Organization  Architecture 2 组织内多账号多区域架构2
 Each region in each memeber account alert will be sent to a central Eventbridge eventbus in the securityhub delegated admin account, then there will be only one lambda centrally process all the events,and generate a critical finding in securityhub.
-![type1](Arch-SingleAccount.png)
+![type1](Arch2.png)
 Deployment process detail please see [Arch2-deployment.md](Arch2-deployment.md)
 
-
+### Note China Region Special 中国区由于不支持cross region event因此，需要在两个region分别部署lambda
 ![type1](Arch2-China.png)
