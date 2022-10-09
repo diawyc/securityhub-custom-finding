@@ -17,8 +17,9 @@ Resources:
       State: ENABLED
       Targets:
         - Arn: !Ref EBARN
-          Id: Eventstosechubadmin
-          RoleArn:!GetAtt EventBridgeRole.Arn
+          Id: '1'
+          RoleArn: !GetAtt EventBridgeRole.Arn
+
   EventBridgeRole:
     Type: 'AWS::IAM::Role'
     Properties:
