@@ -1,0 +1,55 @@
+Resources:
+
+  whiteConfigRule:
+
+    Type: "AWS::Config::ConfigRule"
+
+    Properties:
+
+      ConfigRuleName: "white-ec2-managedinstance-applications-required"
+
+      Scope:
+
+        ComplianceResourceTypes:
+
+          - "AWS::SSM::ManagedInstanceInventory"
+
+      Description: "A Config rule that checks whether all of the specified applications are installed on the instance. "
+
+      InputParameters:
+
+        applicationNames: "perl-TermReadKey:2.30,openssh"
+
+      Source:
+
+        Owner: "AWS"
+
+        SourceIdentifier: "EC2_MANAGEDINSTANCE_APPLICATIONS_REQUIRED"  
+
+  blackConfigRule:
+
+    Type: "AWS::Config::ConfigRule"
+
+    Properties:
+
+      ConfigRuleName: "black-ec2-managedinstance-applications-blacklisted"
+
+      Scope:
+
+        ComplianceResourceTypes:
+
+          - "AWS::SSM::ManagedInstanceInventory"
+
+      Description: "A Config rule that checks that none of the specified applications are installed on the instance. "
+
+      InputParameters:
+
+        applicationNames: "java-1.7.0-openjdk,Nessus"
+
+        platformType: "linux"
+
+      Source:
+
+        Owner: "AWS"
+
+        SourceIdentifier: "EC2_MANAGEDINSTANCE_APPLICATIONS_BLACKLISTED"
