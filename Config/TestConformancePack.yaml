@@ -46,7 +46,7 @@ Resources:
 
         applicationNames: "java-1.7.0-openjdk,Nessus"
 
-        platformType: "linux"
+        platformType: "Linux"
 
       Source:
 
