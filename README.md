@@ -8,3 +8,4 @@ Use config and systems manager to detect EC2 application black/white list
         
 ## 场景4 Amazon Backup Job失败任务告警 Amazon Backup Job Failure Alert
         
+<iframe src="https://www.xmind.net/m/puLiwe" width="900px" height="540px" frameborder="0" scrolling="no"></iframe>
